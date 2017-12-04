@@ -1,0 +1,50 @@
+<!--
+  Generated template for the SurveymodalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header hidden>
+
+  <ion-navbar>
+    <ion-title>surveymodal</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <div class="model ghggf">
+    <button class='close_position' (click)='close2()'>x</button>
+    <h2 >answer questions,</h2>
+    <span>get more sweeps entries</span>
+
+    <p *ngIf='this?.questions'> {{questions.question}}</p>
+
+    <div class="radio_box">
+
+      <ion-list radio-group *ngIf='this?.questions?.mcq == 2' [(ngModel)]="selected" class='imaaa'>
+        <ion-item *ngFor="let opt of alloptions">
+          <ion-label>
+            <img [src]="opt" alt="">
+          </ion-label>
+          <ion-radio [value]="opt"></ion-radio>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-list radio-group *ngIf='this?.questions?.mcq == 1' [(ngModel)]="selected" class='texxx'>
+        <ion-item *ngFor="let opt of alloptions">
+          <ion-label>{{opt}}</ion-label>
+          <ion-radio [value]="opt"></ion-radio>
+        </ion-item>
+      </ion-list>
+        <ion-list *ngIf='this?.questions?.mcq == 0' class='innn'>
+        <ion-item>  <input type="text" [(ngModel)]="selected" placeholder="Your answer">  </ion-item>
+      </ion-list>
+    </div>
+      <button type='button' (click)="close(selected,questions.question)"> Submit </button>
+  </div>
+
+</ion-content>

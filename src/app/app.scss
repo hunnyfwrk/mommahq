@@ -1,0 +1,149 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+@font-face{
+    font-family: Aileron-Heavy;
+    src:url('../assets/font/heavy.woff2');
+}
+@font-face{
+    font-family: Aileron-Semibold;
+    src:url('../assets/font/semibold.woff2');
+} 
+@font-face{
+    font-family: Aileron-Regular;
+    src:url('../assets/font/regular.woff2');
+}
+@font-face{
+    font-family: Aileron-bold;
+    src:url('../assets/font/bold.woff2');
+}
+@font-face{
+    font-family:  Aileron-black;
+    src:url('../assets/font/black.woff2');
+}
+
+@font-face{
+    font-family:  Aileron-italic;
+    src:url('../assets/font/italic.woff2');
+}
+
+
+.back-button{
+    display: none !important;
+}
+.toast-message{
+    text-align: center;
+}
+
+.sunny .alert-button{
+    margin-bottom: 5px !important;
+}
+.location1 .momma1{float: none;}
+
+ion-modal {
+    z-index: 999999 !important;
+}
+
+.honey .alert-tappable {
+    padding: 0 15px !important;
+}
+.honey .alert-radio-icon,.honey .alert-checkbox-icon{
+    border-radius: 4px !important;
+}
+.honey .alert-checkbox-icon{
+    border-color: #111 !important;
+}
+.honey .alert-checkbox-label,.honey .alert-radio-label{
+    color: #111 !important;
+}
+.honey .alert-checkbox-icon,.honey .alert-radio-icon{
+    border-color:  #111 !important;
+}
+ [aria-checked=true] .alert-checkbox-icon {
+    border-color: #111 !important;
+    background-color: #111 !important;
+}
+
+.mobile{
+    display: block;
+}
+.responsive,.responsive01{
+    display: none;
+}
+
+.homebase{
+    padding-top: 180px !important;
+}
+.kids_zone {
+    padding-top: 60px !important;
+}
+
+
+@media only screen and (max-width: 1024px){
+
+
+    .responsive,.responsive01{
+        display: block !important;
+    }
+    .header_bg ion-icon {
+        font-size: 46px;
+    }
+    
+    .modal-wrapper {
+        top:0;
+        left:0px;
+    }
+    .mobile{
+        display: none;
+    }
+    .modal-wrapper {
+        width:100%;
+    }
+    .md .modal-wrapper {
+        border-radius: 2px;
+        overflow: hidden;
+        -webkit-box-shadow:none !important;
+        box-shadow:none !important;
+    }
+    .tuto_out {
+        transform: rotate(-11deg);
+        right: 20px;
+        z-index: 999;
+    }
+    // .header_bg .toolbar-title-md img {
+    //     width: 18% !important;
+    // }
+    ion-modal ion-backdrop {
+          visibility: hidden;
+        }
+
+        .modal-wrapper{
+            height:100%;
+        }
+      
+
+}
+@media only screen and (max-width: 480px){
+    
+    .mobile{
+        display: block !important;
+    }
+    .responsive,.responsive01{
+        display: none !important;
+    }
+    }

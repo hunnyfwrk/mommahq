@@ -1,0 +1,59 @@
+<!--<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Start
+    </ion-title>
+  </ion-navbar>
+</ion-header>-->
+
+<ion-content class="bg-img">
+
+<div class="spacer" style="height:15vh;float:left;width:100%;"></div>
+
+  <div class="logo"><img src="assets/img/start_logo.png"></div>
+<div padding>
+<div class="content">
+<p>Real time answers<br />from real moms in <span>your area</span></p>
+</div>
+
+
+<div class="btns">
+<ion-grid>
+  <ion-row>
+    
+    <ion-col col-12>
+      <button ion-button class="fb" (click)="facebookLogin()">
+          <ion-row>
+              <ion-col col-2 class="fb_icn"><img src="assets/img/f.png"></ion-col>
+              <ion-col class="text00" col-10>Login with Facebook</ion-col>
+          </ion-row>
+      
+    </button>
+  </ion-col>
+
+    <ion-col col-12>
+        <button ion-button class="fb" (click)="nextPage();">
+            <ion-row>
+                <ion-col col-2 class="mail_icn"><img src="assets/img/msg.png"></ion-col>
+                <ion-col class="text00" col-10>Register with Email</ion-col>
+            </ion-row>
+        
+      </button>
+    </ion-col>
+      
+        <ion-col col-12>
+                <button ion-button class="gplus" (click)="googlelogin()">
+                    <ion-row style="width: 100%;">
+                        <ion-col col-2 class="fb_icn"><img src="assets/img/google-plus.png"></ion-col>
+                        <ion-col class="text00" col-10>Login with Google+</ion-col>
+                    </ion-row>
+                
+              </button>
+            </ion-col>
+  </ion-row>
+
+</ion-grid>
+</div>
+
+</div>
+</ion-content>

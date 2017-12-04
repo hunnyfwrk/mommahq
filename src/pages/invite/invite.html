@@ -1,0 +1,118 @@
+<ion-header class="header_bg">
+  <ion-navbar color="header-color">
+
+        <ion-title class="title01">Invite Friends</ion-title>
+
+    <ion-buttons left>
+  <button ion-button navPop icon-only>
+      <!--<button ion-button (click)="set()">-->
+ <img src="assets/img/back.png">
+  </button>
+ </ion-buttons>
+
+ <!--<ion-buttons end>
+  <button ion-button>
+ <div class="user01">
+   <img *ngIf='picture == "null"' src="assets/img/user1.png" align="right">
+   <img *ngIf='picture != "null"' [src]='picture' align="right"></div>
+</button>
+</ion-buttons>-->
+
+
+<ion-buttons end>
+  <button ion-button>
+ <ion-list class="pc">
+  <ion-item>
+    <ion-avatar item-end>
+      <img *ngIf='picture == "null"' src="assets/img/user1.png" align="right">
+        <img *ngIf='picture != "null"' [src]='picture' align="right">
+    </ion-avatar>
+  </ion-item>
+</ion-list>
+
+</button>
+</ion-buttons>
+
+
+</ion-navbar>
+</ion-header>
+<ion-content>
+
+<div class="padding">
+
+<div class="boxs">
+
+  <ion-list style="margin: 0px 0 13px; padding: 10px 0;">
+  <ion-item style="min-height:105px;">
+   
+    <div class="home_base">
+      <h2>Invite Friends - Enter Sweepstakes</h2>
+      <p>Earn an additional entry into our monthly Sweepstakes for every friend that joins!</p>
+
+<div class="skrach">
+<span>{{this?.refcode}}</span>
+</div>
+
+    </div>
+
+ </ion-item>
+
+ <div class="heading1">
+<h2>Send to friends</h2>
+</div>
+
+</ion-list>
+
+
+
+<div class="list01">
+<ion-list>
+  <button ion-item (click)="smsshare()">
+  <img class="right_gap" src="assets/img/icn1.png">SMS
+  </button>  
+</ion-list>
+
+<ion-list>
+  <button ion-item (click)="emailshare()">
+  <img class="right_gap" src="assets/img/icn2.png"> Email
+  </button>
+
+  <div class="heading1">
+<h2>Share to your network</h2>
+</div>
+
+</ion-list>
+
+
+
+</div>
+
+<!-- <div class="spacer" style="float:left;width:100%;height:3vh"></div> -->
+
+
+<div class="list01">
+<ion-list>
+  <button ion-item (click)="fbsharing()">
+  <img class="right_gap" src="assets/img/icn3.png">Facebook
+  </button>  
+</ion-list>
+
+<ion-list>
+  <button ion-item (click)="twittersharing()">
+  <img class="right_gap" src="assets/img/icn4.png">Twitter
+  </button>  
+</ion-list>
+
+
+</div>
+
+ <div class="heading2">
+<p><a (click)='rules()'>Sweeptakes Rules</a></p>
+</div> 
+
+
+  </div>
+
+
+</div>
+</ion-content>

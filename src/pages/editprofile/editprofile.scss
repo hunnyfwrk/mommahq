@@ -1,0 +1,266 @@
+page-editprofile {
+ .bg-img{
+        background-image:url('../assets/img/bg1.jpg');
+        width:100%;
+        float: left;
+        background-repeat: no-repeat;
+        background-size:contain;
+            background-size: 100%;
+    }
+        ion-content{
+    background:#cbafd0 !important;
+}
+.toolbar-title {
+    font-size: 18px;
+    font-family: Aileron-Heavy;
+    color: #1d1234 !important;
+    width: 100%;
+    float: left;
+}
+
+        .header_bg{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a77db8+0,a755a2+100&0.91+0,1+100 */
+background: -moz-linear-gradient(-45deg, rgba(167,125,184,0.91) 0%, rgba(167,85,162,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, rgba(167,125,184,0.91) 0%,rgba(167,85,162,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, rgba(167,125,184,0.91) 0%,rgba(167,85,162,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8a77db8', endColorstr='#a755a2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      color:#fff;
+    }
+    .toolbar-background-ios,.toolbar-background-md{
+        background: transparent !important;
+    }
+    .header_bg .toolbar-title-ios img{
+        width: 90%;
+    }
+    .header_bg .toolbar-title-md{
+        text-align: center;
+    }
+    .header_bg .toolbar-title-md img{
+        width: 55%;
+        margin-top: 6px;
+    }
+    .list-ios .item-block .item-inner,.list-md .item-block .item-inner{
+    border-bottom:none;
+}
+.content .item{
+    border-bottom:1px solid #1d1234 !important;
+}
+.clr55 {
+    color: #1d1234;
+    font-weight: 700;
+}
+
+    .logo img{
+        width: 100%;
+    }
+    .content p{
+        font-size:14px;
+        float: left;
+        width:100%;
+        text-align: center;
+        font-family: Aileron-Bold;
+        color: #fff;
+    }
+     .content p a{
+        font-size:14px;
+        width:auto;
+        font-family: Aileron-Bold;
+        color: #fff;
+        text-decoration: underline;
+    }
+.fb_btn{
+    background: #1d1234;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: aileron-black;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: normal;
+    letter-spacing: 1px;
+    height: 50px;
+    width: 100%;
+}
+.btns img{
+    width:100%;
+    float: left;
+}
+a{
+    cursor: pointer;
+}
+.item-ios,.item-md{
+    padding-left: 0;
+    background-color: transparent !important;
+    color: #fff;
+}
+.input input{
+    color: #ccc;
+    font-size: 14px;
+    font-family: aileron-bold;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff !important;
+  opacity: 1;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #fff !important;
+  opacity: 1;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #fff !important;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #fff !important;
+  opacity: 1;
+}
+.cnl{
+    background: #a7489b;
+}
+.content .item {
+    margin-bottom: 8px;
+    position: relative;
+}
+.terms p {
+    font-size: 11px !important;
+    font-family: Aileron-bold !important;
+    line-height: 16px;
+}
+.terms p a {
+    font-size: 11px !important;
+    font-family: Aileron-bold !important;
+    color: #fff;
+    text-decoration: underline;
+}
+.terms {
+    float: left;
+    width:100%;
+}
+.content .item-inner{
+    margin-left: 0px !important;
+}
+.icn11{
+    position: absolute;
+    left: 0;
+        margin-top: 2px !important;
+        top: 4px;
+}
+.full {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.list-ios > .item-block:first-child {
+    border-top:none
+}
+
+
+.full a{
+    font-size: 14px;
+    font-family: Aileron-Bold;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.button-md.activated{
+background:#1d1234;
+
+}
+
+}
+
+.sunny .alert-head {
+  padding: 14px;
+}
+.sunny h2 {
+  font-size: 19px;
+  font-family: Aileron-Heavy;
+  color: #8d4097;
+  text-align: center;
+}
+.sunny .alert-message {
+  font-size: 14px;
+  text-align: center;
+  font-family: Aileron-Regular;
+  color: #5d3a79;
+  padding-bottom: 5px;
+}
+.sunny .alert-input-wrapper input {
+    color: #1d1234 !important;
+    border: 2px solid #e5d0e4;
+    text-align: center;
+    font-size: 14px;
+    font-family: Aileron-Semibold;
+}
+.sunny .alert-input-wrapper input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #e5d0e4 !important;
+  opacity: 1;
+}
+.sunny .alert-input-wrapper input::-moz-placeholder { /* Firefox 19+ */
+  color: #e5d0e4 !important;
+  opacity: 1;
+}
+.sunny .alert-input-wrapper input:-ms-input-placeholder { /* IE 10+ */
+  color: #e5d0e4 !important;
+  opacity: 1;
+}
+.sunny .alert-input-wrapper input:-moz-placeholder { /* Firefox 18- */
+  color: #e5d0e4 !important;
+  opacity: 1;
+}
+.sunny .alert-input-group {
+    padding-bottom: 18px !important;
+    padding: 0 31px;
+        padding-bottom: 0px;
+}
+.sunny .alert-md .alert-message, .alert-md .alert-input-group{
+    padding-bottom: 3px !important;
+}
+.alert-ios .alert-wrapper{
+    overflow: visible;
+}
+.sunny .alert-button-group{
+    margin-bottom: 10px;
+}
+
+.sunny .disable-hover.alert-button.alert-button-ios.alert-button-default.alert-button-default-ios {
+    border: none;
+    max-width: 75% !important;
+    background: #1d1234;
+    margin: auto;
+        margin-bottom: auto;
+    border-radius:8px;
+    color: #fff;
+    font-size: 15px;
+    font-family: Aileron-Heavy;
+    height: 38px;
+    margin-bottom: 5px;
+}
+.sunny .disable-hover.alert-button.alert-button-ios.alert-button-default.alert-button-default-ios span{
+    line-height: 38px;
+}
+.close_position {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 99999;
+}
+.sunny .alert-wrapper{
+    position: relative;
+}
+
+.sunny{
+   .alert-button-group .alert-button{
+    width: 200px;
+
+.button-inner {
+    text-align: center;
+width: 100%;
+float: left;
+display: block;
+font-size: 15px;
+font-family: Aileron-Heavy;
+text-transform: capitalize;
+}
+}
+}

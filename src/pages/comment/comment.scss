@@ -1,0 +1,340 @@
+page-comment{
+ion-content{
+    background:#cbafd0 !important;
+}
+
+    .header_bg{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a77db8+0,a755a2+100&0.91+0,1+100 */
+background: -moz-linear-gradient(-45deg, rgba(167,125,184,0.91) 0%, rgba(167,85,162,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, rgba(167,125,184,0.91) 0%,rgba(167,85,162,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, rgba(167,125,184,0.91) 0%,rgba(167,85,162,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8a77db8', endColorstr='#a755a2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      color:#fff;
+    }
+    .toolbar-background-ios,.toolbar-background-md{
+        background: transparent !important;
+    }
+    .header_bg .toolbar-title-ios img{
+        width: 90%;
+    }
+    .header_bg .toolbar-title-md{
+        text-align: center;
+    }
+    .header_bg .toolbar-title-md img{
+        width: 50%;
+        margin-top: 6px;
+    }
+    .padding{
+        padding: 15px 0;
+    }
+     .boxs  ion-item {
+   margin-left: 32px;
+margin-right: 32px;
+padding: 0;
+width: 81%;
+}
+.content11 ion-item {
+   margin-left:0px;
+margin-right: 0px;
+width: 100%;
+   }  
+
+    .boxs {
+  width: 100%;
+  float: left;
+    ion-list{
+      background: #fff;
+  }
+ .item-inner {
+    padding-right: 0px !important;
+    
+    ion-label{
+        margin: 0 !important;
+    }
+     }
+  
+    }
+
+     .boxx{
+     
+      ion-list{
+      background: none !important;
+  }
+  .item{
+      background: none !important;
+  }
+ }
+
+    .circle {
+    width: 65px;
+    height: 65px;
+    border: 1px solid #8f3f97;
+    overflow: hidden;
+    border-radius: 50px;
+    float: left;
+    margin: 0 10px 10px 0px;
+    background:#8f3f97;
+    }
+    .content11 h2{
+    float: left;
+    width: 100%;
+    font-size: 15px;
+    font-family: Aileron-Heavy;
+    color: #903f98;
+    position: relative;
+    span{
+        float: right;
+position: absolute;
+right: 0;
+top:2px;
+cursor: pointer;
+
+    }
+}
+
+.boxx .label{
+    min-height: 138px;
+}
+.content11{
+    width:67%;
+    float: right;
+    ion-item {
+    padding-left:0px;
+    padding-right: 0px;
+.item{
+      margin-left:0px !important;
+margin-right: 0px !important;
+  
+    }
+}
+
+     .item-inner {
+    padding-right: 0px;
+     }
+}
+.circle ion-thumbnail {
+  margin: 0 !important;
+  width: 65px !important;
+  height: 65px !important;
+}
+.circle img {
+  width: 65px !important;
+  height: 65px !important;
+}
+.input-sec input{
+    margin-left: 0 !important;
+}
+.list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child,
+.list-ios .item-input.item-input-has-focus:last-child, .list-ios .item-input.input-has-focus:last-child{
+    border-bottom-color: none !important;
+    box-shadow: none !important;
+}
+.input-sec .list-md .item-input:last-child{
+    border-bottom: 0px !important;
+}
+.input-sec .list{
+    margin-bottom: 0;
+} 
+.input-sec .input-wrapper{
+    float: left;
+    height: 34px;
+    margin: 8px 0;
+    border: 2px solid #e5d0e4;
+}
+.input-sec .input.input-md,
+.input-sec .input.input-ios{
+    width:100%;
+    float: left;
+}
+.input-sec .input.input-md input,
+.input-sec .input.input-ios input{
+    width: 100%;
+    float: left;
+    padding: 7px;
+    margin-right: 0;
+    font-size: 14px;
+    font-family: Aileron-Semibold;
+    color: #1d1234;
+}
+.input-sec input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #e5d0e4 !important;
+  opacity: 1;
+}
+.input-sec input::-moz-placeholder { /* Firefox 19+ */
+  color: #e5d0e4 !important;
+  opacity: 1;
+}
+.input-sec input:-ms-input-placeholder { /* IE 10+ */
+  color: #e5d0e4 !important;
+  opacity: 1;
+}
+.input-sec input:-moz-placeholder { /* Firefox 18- */
+  color: #e5d0e4 !important;
+  opacity: 1;
+}
+.btn101 {
+    width: 100%;
+    float: left;
+
+}
+.box11_img{
+    width: 100%;
+    float: right;
+    margin: 5px 0;
+}
+.btn101 a{
+    float: left;
+    margin: 13px 0;
+    color: #1d1234;
+    font-family: Aileron-Regular;
+    font-size: 14px;
+img{
+width: 20px;
+margin-right: 8px;
+float: left;
+}
+    
+}
+.btn101 a .icon{
+    margin-right: 4px;
+}
+.post_btn .button{
+    background-color: #1d1234 !important;
+    font-family: Aileron-bold;
+    color: #fff;
+    border-radius: 4px;
+    height: 38px;
+    margin-bottom: 0;
+    font-size: 1.3rem;
+}
+.post_btn{
+    float: right;
+    width: auto;
+}
+.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+    border-bottom:none !important;
+}
+.list-ios > .item-block:first-child {
+    border-top:none !important;
+}
+
+.back-button.show-back-button {
+    display: none !important;
+}
+
+img {
+    max-width: 100%;
+    border: 0;
+}
+}
+
+.tabbar {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a77db8+0,a755a2+100&0.91+0,1+100 */
+background: -moz-linear-gradient(-45deg, rgba(167,125,184,0.91) 0%, rgba(167,85,162,1) 100%) !important; /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, rgba(167,125,184,0.91) 0%,rgba(167,85,162,1) 100%) !important; /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, rgba(167,125,184,0.91) 0%,rgba(167,85,162,1) 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8a77db8', endColorstr='#a755a2',GradientType=1 ) !important; /* IE6-9 fallback on horizontal gradient */
+   
+}
+.bbb{
+    margin: 10px 15px !important;
+    position: relative;
+}
+.close_position00 {
+    top:-15px !important;
+    right:-15px !important;
+}
+.tab-button-text{
+  
+    color: #1d1234;
+     font-family: Aileron-bold;
+      background: #e4cee3 !important;
+      font-size: 13px !important;
+}
+.tab-button-text{
+   font-size: 13px;
+      background:none !important ;
+}
+.tabs-md .tab-button[aria-selected=true] {
+    color: #1d1234; /*your  text color */
+    background: #e5cfe4; /* your background color*/
+   font-size: 13px;
+    color: #1d1234;
+     font-family: Aileron-bold;
+}
+.tabs-md .tab-button[aria-selected=true] .tab-button-text{
+    font-size: 13px;
+}
+
+.sunny01 h2 {
+  font-size: 19px !important;
+  font-family: Aileron-Heavy;
+  color: #8d4097;
+  text-align: center;
+  width:82%;
+  margin: 0 auto;
+}
+.sunny02 h2 {
+  font-size: 19px !important;
+  font-family: Aileron-Heavy;
+  color: #8d4097;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  line-height: 30px;
+}
+.setting-img{
+    margin-right: 5px;
+    margin-top: 3px;
+}
+.sunny01 .alert-message{
+  font-size: 14px;
+  text-align: center;
+  font-family: Aileron-Regular;
+  color: #1d1234;
+}
+.ggg h2{
+    line-height: 26px;
+    width:89% !important; 
+}
+.sunny02 .alert-message{
+  font-size: 14px;
+  text-align: center;
+  font-family: Aileron-Regular;
+  color: #1d1234;
+}
+.sunny01 .alert-head{
+    padding-bottom: 5px !important;
+}
+.sunny02 .alert-head{
+    padding-bottom: 5px !important;
+}
+.merabutton {
+  background: none !important;
+  font-family: Aileron-Regular;
+  color: #a885bc !important;
+}
+.merabuttton span {
+  text-decoration: underline !important;
+}
+.merabutton .button-inner {
+  font-family: Aileron-Regular !important;
+  text-decoration: underline !important;
+}
+.alert-ios .alert-button:last-child {
+    font-weight: normal;
+}
+.location1 h2{
+    width: 96%;
+    line-height:36px !important;
+}
+.location1 .momma1{
+    width:44% !important;
+    margin-left:5px;
+}
+.add .alert-button:last-child {
+    margin-bottom:10px !important;
+}
+.last1 .alert-button:first-child {
+    margin-bottom:10px !important;
+}

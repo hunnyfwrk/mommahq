@@ -1,0 +1,152 @@
+<ion-header class="header_bg">
+  <ion-navbar color="header-color">
+    <ion-title class="title01">Comments</ion-title>
+    <ion-buttons left>
+      <button ion-button navPop icon-only>
+        <!--<button ion-button (click)="newsfeed()">-->
+   <img src="assets/img/back.png">
+    </button>
+
+    </ion-buttons>
+
+    <!--<ion-buttons end>
+        <button ion-button end (click)="presentProfileModal()">
+   <ion-icon style="font-size:26px;color:#1d1234;" ios="ios-search" md="md-search"></ion-icon>
+    </button>
+      </ion-buttons>-->
+
+  </ion-navbar>
+</ion-header>
+<ion-content style="background: #cbafd0 !important">
+
+  <div class="padding">
+    <div class="boxs boxx">
+      <ion-list style="margin: 0px 0 3px; padding:10px 0 20px 0">
+        <ion-item>
+          <div class="circle">
+            <ion-thumbnail item-start>
+              <img [src]='newsfeeds.userpic'>
+            </ion-thumbnail>
+          </div>
+
+          <div class="content11">
+
+
+            <h2>{{newsfeeds?.name1}}
+              <span *ngIf="like_user == userid" class="hearticon" (click)="heart(newsfeeds.message_id, 1)"><a> <img src="assets/img/heart.png" style="width: 20px;" /> </a> </span>
+              <span *ngIf="like_user != userid" class="hearticon" (click)="heart(newsfeeds.message_id, 0)"><a> <img src="assets/img/heart-outline.png" style="width: 20px;" /> </a> </span>
+            </h2>
+            <span style="float: left;"></span>
+            <span style="width:100%; float:left; white-space: normal;">{{newsfeeds?.newsfeed}} </span>
+
+          </div>
+
+            <div *ngIf='newsfeeds.image' class="box11_img"><img [src]="image" alt=""></div>
+
+          <div class="btnmy" style="width:100%;float:left;text-align:left;">
+            <!--<a style="font-family: Aileron-italic; font-size: 13px;color: #1d1234; float: right;width: 40%;white-space:normal;">Age group: {{newsfeeds.ageGroup}}</a>-->
+
+            <a style="    font-family: Aileron-italic;font-size: 13px;color: #a784bc;width: 60%;float: left;"> {{newsfeeds?.time | date:'MMM d, y h:mm a'}}</a>
+          </div>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
+
+    <!-- <div class="boxs">
+  
+    <ion-list style="margin: 0px 0 3px; padding:10px 0 20px 0">
+    <ion-item style="min-height:105px;">
+      <div class="circle">
+      <ion-thumbnail item-start>
+        <img src="assets/img/icon2.png">
+      </ion-thumbnail>
+      </div>
+  
+      <div class="content11">
+      <h2>Laura A<span class="hearticon"><a (click)="heart()"> <img src="assets/img/heart.png" style="width: 20px;" /> </a> </span> </h2>
+    
+  <span style="width:100%; float:left; white-space: normal;">I recommend this resource!</span>
+  <div class="btnmy" style="position: absolute; left: 0; bottom: 0;
+  ">
+  <a style="font-family: Aileron-italic; font-size:16px; color:#a784bc;"> June 24, 4:40pm</a>
+  </div>
+      </div>
+  
+   </ion-item>
+  </ion-list>
+  
+    </div> -->
+
+    <div *ngIf="comments != 'undefined'">
+
+      <div class="boxs" *ngFor="let key of objectKeys(comments)">
+        <ion-list style="margin: 0px 0 3px; padding:10px 0 20px 0">
+          <ion-item style="min-height:105px;">
+            <div class="circle">
+              <ion-thumbnail item-start>
+                <img [src]="comments[key].userpic">
+              </ion-thumbnail>
+            </div>
+
+            <div class="content11">
+              <h2>{{comments[key].username}}</h2>
+
+              <span style="width:100%; float:left; white-space: normal;">{{comments[key].comment}}</span>
+              </div>
+              <div *ngIf='comments[key].image' class="box11_img "><img [src]="comments[key].image1" alt=""></div>
+            
+
+            <div class="btnmy" style="width:100%;float:left;text-align:left;">
+              <a style="font-family: Aileron-italic; font-size:13px; color:#a784bc;"> {{comments[key].time | date:'MMM d, y h:mm a'}}</a>
+            </div>
+
+          </ion-item>
+        </ion-list>
+
+      </div>
+    </div>
+
+    <div class="boxs">
+
+      <ion-list style="margin: 0px 0 3px; padding:10px 0 20px 0">
+        <ion-item>
+          <div class="circle">
+            <ion-thumbnail item-start>
+              <!--<img src="assets/img/icon2.png">-->
+              <img *ngIf='profilepic == "null"' src="assets/img/user1.png">
+              <img *ngIf='profilepic != "null"' [src]='profilepic'>
+            </ion-thumbnail>
+          </div>
+
+          <div class="content11">
+            <h2>{{firstname}} {{lastname}}</h2>
+            <form class="input-sec" #commentForm="ngForm" (ngSubmit)="postcomment(commentForm)" novalidate>
+              <ion-list>
+
+                <ion-item no-padding>
+                  <ion-input type="text" placeholder="Add a comment" [(ngModel)]="data.commentdata" #commentdata="ngModel" name="commentdata"
+                    ></ion-input>
+                </ion-item>
+                <div class="box11_img bbb" *ngIf='base64Image != null'><img [src]='base64Image' alt="">
+                  <button type='button' class='close_position close_position00' (click)='removePic()'>x</button>
+                </div>
+
+              </ion-list>
+              <div class="btn101">
+                <a (click)='CameraActionSheet()'><img src="assets/img/cameraicon.png" />Add Photo</a>
+                <div class="post_btn"><button ion-button class="fb_btn" [disabled]="!commentForm.valid">Post</button></div>
+
+              </div>
+            </form>
+          </div>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
+
+
+  </div>
+</ion-content>

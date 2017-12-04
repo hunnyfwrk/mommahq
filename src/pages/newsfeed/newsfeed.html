@@ -1,0 +1,267 @@
+          <ion-header class="header_bg">
+  <ion-navbar color="header-color">
+
+    <ion-title class="title1"><img src="assets/img/momma2.png"></ion-title>
+
+    <ion-buttons left class="bar-buttons bar-buttons-ios">
+      <!--<button ion-button navPop icon-only>-->
+      <!-- <button ion-button (click)="search()">
+ <ion-icon style="font-size:26px;color:#1d1234;" ios="ios-search" md="md-search"></ion-icon>
+  </button> -->
+      <button icon-only="" ion-button="" navpop="" class="disable-hover bar-button bar-button-ios bar-button-default bar-button-default-ios" (click)="searchbar()">
+        <span class="button-inner">
+ <ion-icon class="font" style="color:#1d1234;" ios="ios-search" md="md-search"></ion-icon>
+ </span> <div class="button-effect"></div>
+  </button>
+    </ion-buttons>
+
+
+<ion-buttons end="" class="bar-buttons bar-buttons-md">
+  <button ion-button="" (click)="setPage()" class="bar-button bar-button-md bar-button-default bar-button-default-md">
+  <span class="button-inner">
+ <ion-icon class="font" style="color:#1d1234;" ios="ios-settings" md="md-settings"></ion-icon>
+
+</span><div class="button-effect"></div></button>
+</ion-buttons>
+
+
+
+    <ion-buttons end>
+
+ 
+
+  
+
+
+
+      <!--<button ion-button (click)="logout()">-->
+     <!--  <button ion-button (click)="setPage()">
+ <ion-icon class="font" style="color:#1d1234;" ios="ios-settings" md="md-settings"></ion-icon>
+</button> -->
+
+
+      <!-- <button ion-button (click)="setting()">
+ <ion-icon style="font-size:26px;color:#1d1234;" ios="ios-settings" md="md-settings"></ion-icon>
+</button> -->
+    </ion-buttons>
+
+  </ion-navbar>
+
+ <ion-toolbar *ngIf="buttonClicked" class="header_bg">
+     <ion-searchbar [(ngModel)]="searchdata" [showCancelButton]="shouldShowCancel" (ionInput)="setFilteredItems()"
+      (ionCancel)="onCancel()"></ion-searchbar>
+</ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="background-color-transparent">
+
+  <div class="padding">
+   
+    <div class="boxs bx">
+
+      <ion-list>
+        <ion-item>
+          <div class="circle">
+            <ion-thumbnail item-start>
+              <!--<img src="assets/img/icon1.png">-->
+               <img *ngIf='profilepic == "null"' src="assets/img/icon1.png">
+               <img *ngIf='profilepic != "null"' [src]='profilepic'>
+            </ion-thumbnail>
+          </div>
+
+          <div class="content11">
+ 
+            <!-- <li *ngFor="let item of newss; let i = index">
+    {{i}} {{item.email}}
+  </li> -->
+            <h2>{{firstname}} {{lastname}} </h2>
+            <form class="input-sec" #newsfeedForm="ngForm" (ngSubmit)="postnewsfeed(newsfeedForm)" novalidate>
+              <ion-list>
+
+                <ion-item no-padding>
+                  <!--<ion-input type="text" name="newsfeed" placeholder="What's your question?" [(ngModel)]="data.newsfeed" #newsfeed="ngModel"></ion-input>-->
+                    <textarea class="box_text" name="newsfeed" placeholder="What's your question?" [(ngModel)]="data.newsfeed" #newsfeed="ngModel" cols="15" rows="5"></textarea>
+                </ion-item>
+                <div *ngIf="active_kids == 'active'">
+                  <span  *ngIf='hasKids == false'>Please add at least one child to be able to post in an age group. Please click on the Kids Zone tab to enter your child's age.</span>
+                </div>
+                   <div class="box11_img bbb" *ngIf='base64Image != null'>
+                     <img [src]='base64Image' alt="">
+
+                     <button type='button' class='close_position00' (click)='removePic()'>x</button>
+                   </div>
+
+              </ion-list>
+              <div class="btn101">
+                <a (click)="CameraActionSheet()"><img src="assets/img/cameraicon.png" />Add Photo</a>
+                <div class="post_btn" [hidden]='active_kids == "active"'><button type="submit" ion-button class="fb_btn" [disabled]="!newsfeedForm.valid">Post</button></div>
+                <div class="post_btn" *ngIf='active_kids == "active"'>
+
+                  <button type="submit" ion-button class="fb_btn" [disabled]="hasKids == false">Post</button>
+
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
+    <div class="boxs" *ngIf='errorValue == 2'>
+      <span [innerHTML]='policy'></span>
+   <ion-list class="newsfeed nws" *ngFor="let item of newss.reverse() let i = index;" [attr.data-index]="i" >
+        <ion-item>
+          <div class="circle">
+            <ion-thumbnail item-start>
+              <img [src]="item.userpic">
+            </ion-thumbnail>
+          </div>
+
+          <div class="content11">
+            <h2>{{item.name1}}
+              <span [hidden]="item.likes==0" class="hearticon"><a (click)="heart(item.message_id, item.likes)"> <img src="assets/img/heart.png" style="width: 20px;" /> </a> </span>
+              <span [hidden]="item.likes==1" class="hearticon"><a (click)="heart(item.message_id, item.likes)"> <img src="assets/img/heart-outline.png" style="width: 20px;" /> </a> </span>
+
+            </h2>
+            <span style="width:100%; float:left; white-space: normal;margin-bottom:5px;">{{item.newsfeed}} </span>
+          </div>
+
+            <div *ngIf='item.image' class="box11_img"><img [src]="item.image1" alt=""></div>
+  
+           <div class="content11">
+            <form class="input-sec">
+              <div class="post_btn" *ngIf='item.count'><button (click)="comment(item.message_id);" ion-button class="fb_btn"> {{item.count}} Comment<span *ngIf='item.count != 1' style="text-transform:lowercase;">s</span></button></div>
+              <div class="post_btn" *ngIf='!item.count'><button (click)="comment(item.message_id);" ion-button class="fb_btn"> No Comments</button></div>
+
+            </form>
+          </div>
+
+          <div class="btnmy" style="width:100%;float:left;text-align:left;">
+             <!--<a style="font-family: Aileron-italic; font-size:13px;color:#1d1234;float:right;width: 40%;">Age group: {{item.ageGroup}}</a>-->
+              <a style="font-family: Aileron-italic; font-size:13px; color:#a784bc;width: 60%;float: left;" >{{item.time | date:'MMM d, y h:mm a'}}</a>
+            </div>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
+
+    <!-- after filter by keyword this div going to display -->
+    <div class="boxs" *ngIf='errorValue == 0'>
+      <ion-list class="newsfeed" *ngFor="let item of searchArray; let i = index">
+        <ion-item>
+          <div class="circle">
+            <ion-thumbnail item-start>
+              <img src="assets/img/icon2.png">
+            </ion-thumbnail>
+          </div>
+
+          <div class="content11">
+            <h2>{{item.name}} <span [hidden]="item.likes==0" class="hearticon"><a (click)="heart(item.message_id, item.likes)"> <img src="assets/img/heart.png" style="width: 20px;" /> </a> </span>
+              <span [hidden]="item.likes==1" class="hearticon"><a (click)="heart(item.message_id, item.likes)"> <img src="assets/img/heart-outline.png" style="width: 20px;" /> </a> </span></h2>
+               <span style="width:100%; float:left; white-space: normal;margin-bottom:5px;">{{item.newsfeed}} </span>
+               <div *ngIf='item.image' class="box11_img"><img [src]="item.image1" alt=""></div>
+          
+            
+            <form class="input-sec">
+              <div class="post_btn" *ngIf='item.count'><button (click)="comment(item.message_id);" ion-button class="fb_btn"> {{item.count}} Comment<span *ngIf='item.count != 1' style="text-transform:lowercase;">s</span></button></div>
+              <div class="post_btn" *ngIf='!item.count'><button (click)="comment(item.message_id);" ion-button class="fb_btn"> No Comments</button></div>
+            </form>
+          </div>
+
+          <div class="btnmy" style="width:100%;float:left;text-align:left;">
+             <!--<a style="font-family: Aileron-italic; font-size:13px;color:#1d1234;float:right;width:40%;">Age group:  {{item.ageGroup}}</a>-->
+              <a style="font-family: Aileron-italic; font-size:13px; color:#a784bc;float:left;width:60%;"> {{item.time | date:'MMM d, y h:mm a'}}</a>
+            </div>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
+
+    <!-- <div class="boxs">
+
+  <ion-list style="margin: 0px 0 13px; padding: 36px 0;">
+  <ion-item>
+    <div class="circle">
+    <ion-thumbnail item-start>
+      <img src="assets/img/icon2.png">
+    </ion-thumbnail>
+    </div>
+
+    <div class="content11"> 
+    <h2>Katie Q <span class="hearticon" (click)="heart()"> <img src="assets/img/heart-outline.png" style="width: 20px;" />  </span> </h2>
+  
+<span style="width:100%; float:left; white-space: normal;">Lorem ipsum dolor sit amet,
+consectetuer adipiscing elitw, seddiam nonumut laputate velit essemolestie consequat, vel illum dolore eu feugiat nwulla facilisis
+adelenit augue duis dolo
+assdrdwe te fedawugait nulla
+facilisi. myw nibh euismod. </span>
+<div class="btnmy" style="position: absolute; left: 0; bottom: 0;
+">
+<a style="font-family: Aileron-italic; font-size:16px; color:#a784bc;"> June 24, 4:40pm</a>
+</div>
+ <form class="input-sec">
+<div class="post_btn"><button (click)="comment();" ion-button class="fb_btn">12 Comments</button></div>
+
+
+   </form>
+    </div>
+
+ </ion-item>
+</ion-list>
+
+  </div> -->
+
+
+    <!-- <div class="boxs">
+
+  <ion-list style="margin: 0px 0 13px; padding: 36px 0;">
+  <ion-item>
+    <div class="circle">
+    <ion-thumbnail item-start>
+      <img src="assets/img/icon2.png">
+    </ion-thumbnail>
+    </div>
+
+    <div class="content11">
+    <h2>Susannah O <span class="hearticon"><a (click)="heart()"> <img src="assets/img/heart.png" style="width: 20px;" /> </a> </span> </h2>
+  
+<span style="width:100%; float:left; white-space: normal;">What are some good after school
+programs in the area? </span>
+<div class="btnmy" style="position: absolute; left: 0; bottom: 0;
+">
+<a style="font-family: Aileron-italic; font-size:16px; color:#a784bc;"> June 24, 4:40pm</a>
+</div>
+ <form class="input-sec">
+<div class="post_btn"><button (click)="comment();" ion-button class="fb_btn">1 Comments</button></div>
+
+
+   </form>
+    </div>
+
+ </ion-item>
+</ion-list>
+
+  </div> -->
+  </div>
+
+</ion-content>
+<ion-footer>
+         <!--<button class="{{active_kids}}" (click)="last()">last</button>-->
+  
+  <div class="footerbar">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 class="{{active_current}}" style="padding:0px;" (click)="getnewsfeeds()"><span class="tabs1">Current<br />Location</span></ion-col>
+        <ion-col col-4 class="{{active_home}}" style="padding:0px;" (click)="getlocation()"><span class="tabs1">Home<br />Base</span></ion-col>
+        <ion-col col-4 class="{{active_kids}}" style="padding:0px;" (click)="last()"><span class="tabs1">Kids<br />Zone</span></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+</ion-footer>

@@ -1,0 +1,31 @@
+<ion-header class="header_bg">
+  <ion-navbar color="header-color">
+
+<ion-title class="title01"><span class="toolbar-title">Terms and Conditions</span></ion-title>
+
+    <ion-buttons left>
+  <!--<button ion-button navPop icon-only>-->
+      <button ion-button (click)="signup()">
+ <img src="assets/img/back.png">
+  </button>
+ </ion-buttons>
+
+ <ion-buttons end>
+  <button ion-button>
+ <div class="user01"><span><img src="assets/img/user1.png" align="right"></span></div>
+</button>
+</ion-buttons>
+
+</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <div class="padding">
+      <div class="boxs boxx">
+        <ion-list style="margin: 0px 0 3px; padding:10px 0 20px 0">
+          <ion-item [innerHTML]='this?.terms'>
+          </ion-item>
+        </ion-list>
+      </div>
+ </div>  
+</ion-content>

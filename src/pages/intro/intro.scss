@@ -1,0 +1,15 @@
+page-intro {
+    
+    .bg-img{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a74c9d+0,ffffff+45&0.48+0,0+100 */
+background: -moz-linear-gradient(-45deg, rgba(167,76,157,0.48) 0%, rgba(255,255,255,0.26) 45%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, rgba(167,76,157,0.48) 0%,rgba(255,255,255,0.26) 45%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, rgba(167,76,157,0.48) 0%,rgba(255,255,255,0.26) 45%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7aa74c9d', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */;
+    background-repeat: no-repeat;
+    }
+    .logo img{
+        width: 80%;
+    }
+
+}

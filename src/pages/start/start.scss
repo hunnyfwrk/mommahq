@@ -1,0 +1,148 @@
+page-start {
+.gplus {
+    background-color: #dc4a38;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0;
+    font-size: 15px;
+    font-family: Aileron-black;
+    text-transform: none;
+    padding: 0;
+    overflow: hidden;
+    height: 45px;
+    .text00 {
+   padding: 20px 0;
+    border-left: 1px solid #fff;
+    max-width: 100%;
+}
+}
+    .bg-img{
+        background-image:url('../assets/img/bg1.jpg');
+        width:100%;
+        float: left;
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+    .logo img{
+        width: 100%;
+    }
+    .fb {
+        background: #1d1234;
+        width: 100%;
+        border-radius: 10px;
+        margin: 0;
+        font-size: 15px;
+        font-family: Aileron-black;
+        text-transform: none;
+        padding: 0;
+        overflow: hidden;
+        height: auto;
+    }
+    .fb .row{
+        width:100%;
+    }
+    .fb .fb_icn{
+        padding: 0;
+        position: relative;
+        background: #3a5a9f;
+    }
+    .fb .fb_icn .icon {
+        color: #3a5a9f;
+        font-size: 57px;
+        height: 44px;
+        width: 100%;
+        float: left;
+    }
+    .fb .text00 {
+        padding: 16px;
+        border-left: 1px solid #fff;
+    }
+    .content p{
+        font-size:15px;
+        float: left;
+        width:100%;
+        text-align: center;
+        font-family: Aileron-semibold;
+        color: #fff;
+    }
+    .content p span{
+        font-size:15px;
+        width:auto;
+        font-family: Aileron-black;
+        color: #fff;
+    }
+    .fb .mail_icn{
+        padding: 0;
+        position: relative;
+    }
+
+a{
+    cursor: pointer;
+}
+.button-ios.activated{
+    background: transparent !important;
+}
+
+.btns img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+
+@media only screen and (min-width: 800px) {
+
+.fb,.fb_btn{
+    height: 60px !important;
+}
+.fb .text00{
+    padding: 22px !important;
+    max-width: 68% !important;
+}
+
+.fb .row{
+    height:100% !important;
+}
+.btns img{
+    width:40%;
+}
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+.btns img {
+    width: 45px !important;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    margin: auto;
+}
+.fb .fb_icn{
+    background: #3a5ba0;
+}
+.fb .row{
+    height:100% !important;
+}
+.fb .fb_icn{
+    height:60px;
+    background: #3a5ba0;
+}
+.text00 {
+    max-width: 68% !important;
+    padding: 24px !important;
+}
+
+.fb,.fb_btn{
+    height: 60px !important;
+}
+
+}
+
+
+}

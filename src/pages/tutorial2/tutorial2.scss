@@ -1,0 +1,115 @@
+page-tutorial2 {
+
+  .tuto_out {
+    color: #fff;
+    position: absolute;
+    bottom: 50px;
+    right: 115px;
+    width: 30%;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+  .tutorial_txt {
+  color: #fff;
+  font-size: 26px;
+  position: absolute;
+  width: 58%;
+  font-family: 'Knewave', cursive;
+}
+.arrow {
+    padding: 20px;
+}
+
+
+@media only screen and (min-width: 320px) {
+
+.tuto_out {
+  color: #fff;
+  position: absolute;
+  bottom: 50px;
+  right: 115px;
+  width: 18%;
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.tuto_out img{
+  height: 88px !important;
+}
+
+}
+
+
+@media only screen and (min-width: 360px) {
+
+  .tuto_out {
+    color: #fff;
+    position: absolute;
+    bottom: 50px;
+    right: 55px;
+    width: 30%;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+}
+
+.tuto_out .mobile{
+  height: 220px !important;
+}
+
+}
+
+@media only screen and (min-width: 800px) {
+  .tuto_out {
+    -webkit-transform: rotate(-80deg);
+    transform: rotate(-80deg);
+    right: -220px;
+    z-index: 999;
+    left: 0;
+    margin: auto;
+    width: 62%;
+    bottom: 190px !important;
+}
+.ggg{
+  padding-top: 40vh;
+}
+.tuto_out img {
+  height: 180px !important;
+}
+
+
+}
+
+@media only screen and (min-width:1024px) {
+
+  ion-alert.alert-top {
+    padding: 40vh 0 !important;
+}
+.tuto_out {
+    -webkit-transform: rotate(-441deg);
+    transform: rotate(-441deg);
+    bottom: 230px !important;
+    width: 44%;
+}
+    ion-alert.alert-top {
+    padding-top:32vh;
+  }
+
+}
+
+}
+
+
+@media only screen and (min-width: 800px) {
+
+.ggg{
+  padding-top: 40vh !important;
+}
+
+}

@@ -1,0 +1,106 @@
+page-tutorial {
+
+    .tuto_out {
+        color: #fff;
+        position: absolute;
+        bottom: 60px;
+        right: 0;
+        width: 25%;
+        transform: rotate(-20deg);
+        -webkit-transform: rotate(-20deg);
+    }
+  .tutorial_txt {
+  color: #fff;
+  font-size: 26px;
+  position: absolute;
+  width: 58%;
+  font-family: 'Knewave', cursive;
+}
+.arrow {
+    padding: 20px;
+}
+
+
+@media only screen and (min-width: 320px){
+.tuto_out {
+    color: #fff;
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    width: 15%;
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+}
+
+.tuto_out .mobile{
+    height: 80px !important;
+}
+
+}
+
+@media only screen and (min-width: 360px){
+
+    .tuto_out {
+        color: #fff;
+        position: absolute;
+        bottom: 54px;
+        right: 20px;
+        width: 24%;
+        transform: rotate(-20deg);
+        -webkit-transform: rotate(-20deg);
+    }
+    .tuto_out .mobile {
+        height: 200px !important;
+    }
+
+}
+
+
+@media only screen and (min-width: 800px){
+.tuto_out {
+    color: #fff;
+    position: absolute;
+    right: -80px;
+    width: 50%;
+    margin: auto;
+    bottom: 180px;
+    -webkit-transform: rotate(-100deg);
+    transform: rotate(-100deg);
+}
+ion-alert.alert-md.sunny01.ggg.sunny.last1.alert-top {
+    padding-top: 22vh;
+}
+
+    }
+
+@media only screen and (min-width: 1024px){
+    .tuto_out {
+        -webkit-transform: rotate(-110deg);
+        transform: rotate(-110deg);
+        z-index: 999;
+        bottom: 200px;
+        right: -20px;
+        width: 40%;
+    }
+    .ggg{
+        padding-top: 40vh !important;
+    }
+
+}
+
+}
+
+
+@media only screen and (min-width: 360px){
+    
+    
+        .kids_zone {
+            padding-top:70px !important;
+        }
+        .homebase {
+            padding-top:170px !important;
+        }
+        
+    
+    }
+    

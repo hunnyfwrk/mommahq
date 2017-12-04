@@ -1,0 +1,63 @@
+<ion-content class="bg-img">
+
+  <form #signinForm="ngForm" novalidate>
+    <div class="logo"><img src="assets/img/start_logo.png"></div>
+    <div class="pdng">
+      <div class="content">
+        <ion-list>
+
+          <ion-item no-padding>
+            <ion-icon name="person" class="icn11" item-start></ion-icon>
+            <ion-input type="email" placeholder="Email Address" name="email" #email="ngModel" [(ngModel)]="data.email" pattern='^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$'
+              required></ion-input>
+          </ion-item>
+          <ion-label class="alert alert-danger" color="danger">
+            <div *ngIf="email.errors && (email.dirty || email.touched)">
+              <div [hidden]="!email.errors.required">
+                Email is required
+              </div>
+              <div [hidden]="!email.errors.pattern">
+                Invalid Email
+              </div>
+            </div>
+          </ion-label>
+          <ion-item>
+            <ion-icon name="key" class="icn11" item-start></ion-icon>
+            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="data.password" #password="ngModel" minlength="6"></ion-input>
+          </ion-item>
+          <ion-label class="alert alert-danger" color="danger">
+            <div *ngIf="password.errors && (password.dirty || password.touched)">
+              <div [hidden]="!password.errors.required">
+                Password is required
+              </div>
+              <div [hidden]="!password.errors.minlength">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </ion-label>
+        </ion-list>
+      </div>
+
+      <div class="full">
+        <a (click)="showPrompt()">Forgot password?</a>
+      </div>
+
+      <div class="btns">
+        <ion-grid>
+          <ion-row>
+
+            <!--<ion-col col-12><a (click)="startPage();"><button ion-button class="fb_btn cnl">cancel</button></a></ion-col>-->
+            <ion-col col-12>
+              <button ion-button class="fb_btn" type="submit" (click)="login(signinForm)" [disabled]="!signinForm.valid">Login</button>
+            </ion-col>
+            <ion-col col-12 (click)="facebookLogin()"><a><img src="assets/img/fb.png"></a></ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </div>
+      <p>Don't have an account? <a (click)="signupPage()">Sign up</a></p>
+      <div class="spacer" style="height:4vh;float:left;width:100%"></div>
+
+    </div>
+  </form>
+</ion-content>

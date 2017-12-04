@@ -1,0 +1,67 @@
+<ion-header class="header_bg">
+  <ion-navbar color="header-color">
+
+        <ion-title class="title01">Edit Profile</ion-title>
+
+    <ion-buttons left>
+  <button ion-button navPop icon-only>
+      <!--<button ion-button (click)="set()">-->
+ <img src="assets/img/back.png">
+  </button>
+ </ion-buttons>
+
+</ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="bg-img">
+
+
+  <form (ngSubmit)="onSubmit()" #editForm="ngForm" novalidate>
+    <div padding>
+      <div class="content">
+        <ion-list>
+ <ion-item no-padding> 
+   <ion-label class="clr55">First Name</ion-label>
+            <ion-input type="fname" placeholder="First Name" name="fname" #fname="ngModel" [(ngModel)]="data.fname" 
+              required></ion-input>
+          </ion-item>
+          <ion-item no-padding>
+             <ion-label class="clr55">Last Name</ion-label>
+            <ion-input type="lname" placeholder="Last Name" name="lname" #lname="ngModel" [(ngModel)]="data.lname" 
+              required></ion-input>
+          </ion-item>
+
+ <div class="multichild" *ngFor="let items of childdata;let i = index"> 
+<ion-item no-padding>
+   <ion-label class="clr55">Child {{i+1}} Name </ion-label>
+            <ion-input type="text" placeholder="Child Name" name="childname{{items.child_id}}" #childname="ngModel" [(ngModel)]="data.childname[items.child_id]" 
+              required></ion-input>
+          </ion-item>         
+        
+           <ion-item >
+             <ion-label class="clr55">Child {{i+1}} DOB </ion-label>
+            <ion-input type="date" placeholder="Age" name="age{{items.child_id}}" [(ngModel)]="data.childAge[items.child_id]" #age="ngModel"></ion-input>
+          </ion-item> 
+   </div> 
+
+        </ion-list>
+      </div>
+
+      <div class="btns">
+        <ion-grid>
+          <ion-row>
+
+            <!--<ion-col col-12><a (click)="startPage();"><button ion-button class="fb_btn cnl">cancel</button></a></ion-col>-->
+            <ion-col col-12>
+              <button ion-button class="fb_btn" type="submit" [disabled]="!editForm.valid">Save</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </div>
+
+    </div>
+  </form>
+</ion-content>

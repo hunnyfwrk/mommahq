@@ -1,0 +1,73 @@
+<ion-header class="header_bg">
+  <ion-navbar color="header-color">
+
+    <ion-buttons left>
+  <button ion-button navPop icon-only>
+      <!--<button ion-button (click)="newsfeed()">-->
+ <img src="assets/img/back.png">
+  </button>
+ </ion-buttons>
+
+ <ion-buttons end>
+  <button ion-button>
+ <ion-list class="pc">
+  <ion-item>
+    <ion-avatar item-end>
+      <img *ngIf='picture == "null"' src="assets/img/user1.png" align="right">
+        <img *ngIf='picture != "null"' [src]='picture' align="right">
+    </ion-avatar>
+    <h2>{{firstname}} {{lastname}}</h2>
+  </ion-item>
+</ion-list>
+
+</button>
+</ion-buttons>
+
+</ion-navbar>
+</ion-header>bg1
+
+<ion-content class="bg-img">
+
+<div class="">
+
+<div class="list01">
+<ion-list>
+  <button ion-item (click)="profile();">
+   View/Edit Your Profile
+  </button>  
+</ion-list>
+
+<ion-list>
+  <button ion-item (click)="invite();">
+   Invite Friends-Enter Sweeps!
+  </button>  
+</ion-list>
+
+<ion-list>
+  <button ion-item (click)="save()">
+   Saved Discussions
+  </button>  
+</ion-list>
+
+<ion-list>
+  <button ion-item (click)="contactus()">
+   Contact Us
+  </button>  
+</ion-list>
+
+<!--<ion-list>
+  <button ion-item (click)="terms_n_conditions()">
+    Terms & Conditions
+  </button>  
+</ion-list>-->
+
+<ion-list>
+  <button ion-item (click)="logout();">
+   Log out
+  </button>  
+</ion-list>
+
+</div>
+</div>
+
+</ion-content>

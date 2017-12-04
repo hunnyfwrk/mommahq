@@ -1,0 +1,87 @@
+page-tutorial8 {
+    .tuto_out {
+        color: #fff;
+        position: absolute;
+        top: 187px;
+        right: 120px;
+    }
+  .tutorial_txt {
+  color: #fff;
+  font-size: 26px;
+  position: absolute;
+  width: 58%;
+  font-family: 'Knewave', cursive;
+}
+.arrow {
+    padding: 20px;
+}
+
+.hrt .alert-wrapper {
+    bottom: -145px !important;
+}
+
+@media only screen and (min-width: 320px){
+
+.tuto_out {
+    color: #fff;
+    position: absolute;
+    top: 189px;
+    right: 125px;
+}
+
+.tuto_out img{
+    height: 86px !important;
+}
+
+}
+
+
+@media only screen and (min-width: 360px){
+
+    .tuto_out {
+        color: #fff;
+        position: absolute;
+        top: 187px;
+        right: 120px;
+    }
+.tuto_out .mobile{
+    height: 148px !important;
+    transform: rotate(0deg);
+}
+
+}
+
+@media only screen and (min-width: 800px){
+    .tuto_out {
+        -webkit-transform: rotate(-93deg);
+        transform: rotate(-93deg);
+        top: 254px !important;
+        /* right: 60px; */
+        width: 76%;
+        left: 0;
+        right: -150px;
+        margin: auto;
+    }
+    .tuto_out img {
+        height: 172px !important;
+    }
+    
+    }
+
+    @media only screen and (min-width: 1024px){
+        .tuto_out {
+            -webkit-transform: rotate(-91deg);
+            transform: rotate(-91deg);
+            top: 325px !important;
+            z-index: 999;
+            width: 44%;
+            left: 0;
+            right: -120px;
+            margin: auto;
+        }
+}
+
+
+
+
+}

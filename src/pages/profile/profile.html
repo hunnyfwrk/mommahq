@@ -1,0 +1,142 @@
+<ion-header class="header_bg">
+  <ion-navbar color="header-color">
+
+        <ion-title class="title01">Profile</ion-title>
+
+    <ion-buttons left>
+  <button ion-button navPop icon-only>
+      <!--<button ion-button (click)="set()">-->
+ <img src="assets/img/back.png">
+  </button>
+ </ion-buttons>
+
+ <ion-buttons end>
+  <button ion-button>
+ <ion-list class="pc">
+  <ion-item>
+    <ion-avatar item-end>
+      <img *ngIf='picture == "null"' src="assets/img/user1.png" align="right">
+        <img *ngIf='picture != "null"' [src]='picture' align="right">
+    </ion-avatar>
+  </ion-item>
+</ion-list>
+</button>
+</ion-buttons>
+
+</ion-navbar>
+</ion-header>
+<ion-content>
+
+<div class="">
+
+
+
+<ion-grid style="border-bottom: 2px solid pink;">
+  <ion-row>
+    <ion-col col></ion-col>
+    <ion-col col col-10>
+
+<div class="boxs">
+
+  <ion-list style="margin: 0px 0 6px; padding: 8px 0;">
+  <ion-item style="min-height:105px;">
+    <div class="main_circle">
+    <div class="circle">
+    <ion-thumbnail item-start (click)='CameraActionSheet()'>
+      <img *ngIf='picture == "null"' src="assets/img/icon1.png">
+      <img *ngIf='picture != "null"' [src]='picture' align="right">
+    </ion-thumbnail>
+    <img class="cup01" *ngIf='thismonthsweeps >= 1000' src="assets/img/cup.png">
+    </div>
+    <ion-icon class="edt" ios="ios-create" md="md-create" (click)='CameraActionSheet()'></ion-icon>
+    </div>
+
+    <div class="content11">
+    <h2> {{firstname}} {{lastname}} </h2>
+ 
+<div class="content">
+  <div class="avv" *ngFor="let data of childdata;let i = index">
+    <span style="width:auto; float:left; white-space: normal;">{{data.childname}}</span>
+    <p style="width:auto;float:left;" *ngIf='data.childAge > 0'> &nbsp; Age - {{data.childAge | number : '1.0-0'}} </p>
+    <p style="width:auto;float:left;" *ngIf='data.childAge <= 0'>  &nbsp; Due date - {{data.duedate }} </p>
+    
+  </div>
+</div>
+
+    </div>
+
+ </ion-item>
+</ion-list>
+
+  </div>
+
+    </ion-col>
+    <ion-col col></ion-col>
+  </ion-row>
+</ion-grid>
+
+
+ 
+
+
+<div class="boxs home_base">
+   <h2>Home Base  <ion-icon style='height:15px;margin-right:10px;' ios="ios-create" md="md-create" (click)='addhomebase(homebasetext)'></ion-icon></h2>
+ <div #map id="map" style="height:250px;position: initial;float:left;width:100%;"></div>
+  <ion-list style="margin: 0px 0 6px; padding: 0px 0;">
+  <ion-item style="min-height:100%;">
+   
+    <!--<div class="home_base">
+      <h2>Home Base</h2>
+     
+      <img src="assets/img/map.jpg"> 
+      <p>Zoom in and out on map to update Home Base Location</p>
+    </div>-->
+
+ </ion-item>
+</ion-list>
+
+  </div>
+
+
+  <div class="boxs" style="border-top: 2px solid pink;margin-top: 15px;">
+
+  <ion-list>
+  <ion-item style="min-height:105px;">
+   
+    <div class="home_base home_base2">
+       <h2>Sweepstakes Points Tracker</h2>
+     <!-- <div class="sweep-text">
+        <span>{{currentmonth}} sweeps {{thismonthsweeps}}</span>
+      <span>TOTAL {{totalsweeps}}</span>
+      </div>
+      <p><a>Sweeptakes Rules</a></p> -->
+      <img *ngIf='thismonthsweeps < 1000' src="assets/img/pink3.jpg">
+       <img *ngIf='thismonthsweeps >= 1000' src="assets/img/pink4.jpg">
+        <img class="arrow01" src="assets/img/arrowpink.png">
+
+      <div class="point_tp">
+        <h3 style="text-transform:uppercase;">{{this?.currentmonth}}</h3>
+        <p>SWEEPS</p>
+      </div>
+      <div class="rs">{{thismonthsweeps}}</div>
+
+      <div class="point_dn">
+        <h3>TOTAL</h3>
+        <p>(SINCE JOINING)</p>
+      </div>
+      <div class="rsb">{{totalsweeps}}</div>
+
+      <h2 class="june" (click)='rules()'>Sweeptakes Rules</h2>
+
+    </div>
+ </ion-item>
+</ion-list>
+
+  </div>
+</div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar style="padding:0px;">
+    <button class="edit050" ion-button full (click)="editprofile()">Edit Profile</button>
+  </ion-toolbar>
+</ion-footer>
