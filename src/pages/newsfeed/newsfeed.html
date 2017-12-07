@@ -126,7 +126,7 @@
               <span [hidden]="item.likes==1" class="hearticon"><a (click)="heart(item.message_id, item.likes)"> <img src="assets/img/heart-outline.png" style="width: 20px;" /> </a> </span>
 
             </h2>
-            <span style="width:100%; float:left; white-space: normal;margin-bottom:5px;">{{item.newsfeed}} </span>
+            <span style="width:100%; float:left; white-space: normal;margin-bottom:5px;" [innerHTML]='item.newsfeed'></span>
           </div>
 
             <div *ngIf='item.image' class="box11_img"><img [src]="item.image1" alt=""></div>
@@ -162,7 +162,7 @@
           <div class="content11">
             <h2>{{item.name}} <span [hidden]="item.likes==0" class="hearticon"><a (click)="heart(item.message_id, item.likes)"> <img src="assets/img/heart.png" style="width: 20px;" /> </a> </span>
               <span [hidden]="item.likes==1" class="hearticon"><a (click)="heart(item.message_id, item.likes)"> <img src="assets/img/heart-outline.png" style="width: 20px;" /> </a> </span></h2>
-               <span style="width:100%; float:left; white-space: normal;margin-bottom:5px;">{{item.newsfeed}} </span>
+               <span style="width:100%; float:left; white-space: normal;margin-bottom:5px;" [innerHTML]='item.newsfeed'></span>
                <div *ngIf='item.image' class="box11_img"><img [src]="item.image1" alt=""></div>
           
             

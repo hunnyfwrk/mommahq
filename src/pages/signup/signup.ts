@@ -134,7 +134,7 @@ export class SignupPage {
                      // alert(ref);
                       firebase.database().ref().child('users/' + id).update({
                         token: aa.devicetoken,
-                        refcode : ref
+                        refcode : ref 
                       }).catch((err) => {
                         //alert('err'+ JSON.stringify(err));
                       })

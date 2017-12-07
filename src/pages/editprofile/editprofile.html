@@ -32,6 +32,11 @@
             <ion-input type="lname" placeholder="Last Name" name="lname" #lname="ngModel" [(ngModel)]="data.lname" 
               required></ion-input>
           </ion-item>
+          <ion-item no-padding>
+             <ion-label class="clr55"> {{showtitle}}</ion-label>
+            <ion-input type="refcode" placeholder="This cannot be changed in future." name="refcode" #refcode="ngModel" [readonly]='readonly' [(ngModel)]="data.refcode" 
+              ></ion-input>
+          </ion-item>
 
  <div class="multichild" *ngFor="let items of childdata;let i = index"> 
 <ion-item no-padding>

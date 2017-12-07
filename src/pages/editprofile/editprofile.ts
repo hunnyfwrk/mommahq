@@ -17,8 +17,9 @@ import { ProfilePage } from "../profile/profile";
 })
 export class EditprofilePage {
   public childdata: any = [];
-  public child; childrens;
-  public userProfile: any;
+  public child; childrens; referred_by:any=null;
+  public userProfile: any; dontshowupdatemsg:any=0;currentdate;
+  public readonly = true; showtitle:any = "Add referral code";
   options: { key: string, value: string }[] = [];
 
   submitted = false;
@@ -26,7 +27,8 @@ export class EditprofilePage {
     fname: '',
     lname: '',
     childname: [],
-    childAge: []
+    childAge: [],
+    refcode: ''
   };
   constructor(
     public navCtrl: NavController,
@@ -37,9 +39,19 @@ export class EditprofilePage {
     public facebook: Facebook,
     public events : Events
   ) {
-
+     var today = new Date();
+      var dd: any = today.getDate();
+      var mm: any = today.getMonth() + 1; //January is 0!
+      var yyyy = today.getFullYear();
+      if (dd < 10) {
+        dd = dd;
+      }
+      if (mm < 10) {
+        mm = mm;
+      }
+      this.currentdate = dd + '-' + mm + '-' + yyyy;
     this.showprofile();    // Load Show profile Functiuon 
-    // alert('Hello')
+//     alert('Hello')
   }
 
   presentProfileModal() {
@@ -54,14 +66,53 @@ export class EditprofilePage {
   onSubmit() {
     console.log(this.data);
     var user_id = localStorage.getItem("userid");
-  
+    if(this.userProfile.refferedby == undefined){
+        if(this.data.refcode != ''){
+            firebase.database().ref().child('users').orderByChild("refcode").equalTo(this.data.refcode).once("value", ((data) => {
+                 if (data.val()) {
+                    console.log(data.val())
+                    this.dontshowupdatemsg = 0;
+                  for(let i in data.val()){
+                    console.log('referred_by ',i)
+                    this.referred_by = i;
+                    console.log(this.referred_by)
+                    firebase.database().ref().child('sweeptakes/' + user_id + '/' + this.currentdate + '/used_refcode').transaction((values) => {
+                        var newValue = (values || 0) + 1;
+                        return newValue;
+                    })
+                    firebase.database().ref().child('sweeptakes/' + this.referred_by + '/' + this.currentdate + '/referred_newuser').transaction((values) => {
+                     var newValue = (values || 0) + 1;
+                     return newValue;
+                    })
+                    this.saveinfo()
+                  }
+                 } else {
+                    this.showPrompt();
+                    this.dontshowupdatemsg = 1;
+                 }
+            }))
+        } else {
+             this.saveinfo() 
+        }
+    } else {
+            this.referred_by = this.data.refcode
+            this.saveinfo()
+    }
+ 
+  }
+    
+  saveinfo(){
+     var user_id = localStorage.getItem("userid");
     if(this.data.childAge == undefined || this.data.childAge == null){
-
       firebase.database().ref().child("users/" + user_id).update({
         firstname: this.data.fname,
-        lastname: this.data.lname
+        lastname: this.data.lname,
+        refferedby: this.referred_by
       }).then((res) => {
-        this.showtoast('Profile updated successfully');
+        if(this.dontshowupdatemsg != 1){
+           this.showtoast('Profile updated successfully');
+        }
+        
         localStorage.setItem('username', this.data.fname + ' ' + this.data.lname)
         this.events.publish('username', 'username')
       })
@@ -69,11 +120,14 @@ export class EditprofilePage {
     } else {
       firebase.database().ref().child("users/" + user_id).update({
         firstname: this.data.fname,
-        lastname: this.data.lname
+        lastname: this.data.lname,
+        refferedby : this.referred_by
       }).then((res) => {
         localStorage.setItem('username', this.data.fname + ' ' + this.data.lname);
         this.events.publish('username', 'username')
-        this.showtoast('Profile updated successfully');
+        if(this.dontshowupdatemsg != 1){
+           this.showtoast('Profile updated successfully');
+        }
       })
       for (var i in this.data.childAge) {
         for (var j in this.data.childname) {
@@ -99,11 +153,7 @@ export class EditprofilePage {
         }
       }
     }
-
-
-
   }
-
 
   login(signindata) {
     if (signindata.value.password.indexOf(' ') >= 0) {
@@ -242,22 +292,14 @@ export class EditprofilePage {
 
   showPrompt() {
     let prompt = this.alertCtrl.create({
-      title: 'Forgot Password?',
-      message: "Enter your email address to receive a reset password link",
+      title: 'Invalid Referral code',
+      message: "Referral code that you entered is invalid.",
       cssClass: 'sunny',
-      inputs: [
-        {
-          name: 'email',
-          placeholder: 'Email'
-        },
-      ],
       buttons: [
         {
-          text: 'Reset Password',
+          text: 'Okay',
           handler: data => {
-            console.log('Saved clicked');
-            console.log(data.email);
-            this.forgetPassword(data.email);
+//              prompt.dismiss()
           }
         },
         // {
@@ -315,7 +357,7 @@ export class EditprofilePage {
       cage: editForm.value.age,
     }
 
-    alert(JSON.stringify(data_Profile));
+    //alert(JSON.stringify(data_Profile));
     var serialized = this.serializeObj(data_Profile);
     console.log(serialized);
     let headers = new Headers();
@@ -336,9 +378,17 @@ export class EditprofilePage {
     // alert(userid);
     firebase.database().ref().child('users/' + userid).on('value', ((datachild) => {
       this.userProfile = datachild.val();
-      // console.log(JSON.stringify(this.userProfile))
+       console.log(this.userProfile)
       // alert(JSON.stringify(this.userProfile));
       console.log(this.userProfile.firstname)
+//      alert(this.userProfile.refferedby);
+      if(this.userProfile.refferedby != undefined){
+          this.readonly = true;
+          this.showtitle = "Referred by"
+      } else {
+          this.readonly = false;
+          this.showtitle = "Add referral code"
+      }
       firebase.database().ref().child('Children/' + userid).on('value', ((datachild) => {
         this.childdata = [];
 
@@ -361,12 +411,16 @@ export class EditprofilePage {
         }
 
         console.log(this.childdata);
-
+        var refferedby = this.userProfile.refferedby
+        if(refferedby == undefined){
+            refferedby = ''
+        }
         this.data = {
           fname: this.userProfile.firstname,
           lname: this.userProfile.lastname,
           childname: childname,
           childAge: childage,
+          refcode :  refferedby
         }
         // alert(this.data);
       }))

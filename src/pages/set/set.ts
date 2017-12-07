@@ -3,6 +3,7 @@ import { NavController, AlertController,ModalController,Events,ToastController }
 import { NewsfeedPage } from '../newsfeed/newsfeed';
 import { SavediscussionPage } from '../savediscussion/savediscussion';
 import { LoginPage } from "../login/login";
+import { StartPage } from "../start/start";
 import { ProfilePage } from "../profile/profile";
 import { InvitePage } from "../invite/invite";
 import { ContactusPage } from "../contactus/contactus";
@@ -247,7 +248,7 @@ export class SetPage {
   }
 
   signinpage() {
-    this.navCtrl.push(LoginPage).then(() => {
+    this.navCtrl.push(StartPage).then(() => {
       const index = this.navCtrl.getActive().index;
       this.navCtrl.remove(0, index);
     });

@@ -61,7 +61,7 @@ export class NewsfeedPage {
   ) {
 
     
-   //alert("2017-11-30")
+//   alert("2017-11-30")
     this.profilepic = localStorage.getItem("userpic");
    
     this.events.subscribe('userpic', () => {
@@ -521,7 +521,7 @@ export class NewsfeedPage {
             for (let i in this.news) {
               var distance = this.newsfeedProvider.getdistance(this.latitude, this.longitude, this.news[i].latitude, this.news[i].longitude, "K");
               var range = (distance).toFixed(2);
-              if (parseFloat(range) < 50.00) {
+              if (parseFloat(range) < 50.00) {   //gets newsfeed according to current location
 
                 this.news[i].message_id = i;
                 if (this.news[i].like != undefined) {
@@ -531,6 +531,10 @@ export class NewsfeedPage {
                 }
 
                 this.newss.push(this.news[i]);
+              }
+              //gets newsfeed pushed for all users
+              if(this.news[i].global != undefined && this.news[i].global ==true){
+                  this.newss.push(this.news[i]);
               }
             }
             let timeoutId = setTimeout(() => {
@@ -890,7 +894,8 @@ export class NewsfeedPage {
               var age = this.newsfeedProvider.getAge(data.date);
               var yr = data.date.split('-');
               var ageGroup = yr[0];
-              var useridd = localStorage.getItem('userid');
+              let useridd = localStorage.getItem('userid');
+              let email = localStorage.getItem('email');
               console.log(age, 'age')
 
               if (age < 18) {
@@ -900,8 +905,8 @@ export class NewsfeedPage {
                   childname: data.fchildname,
                   childDob: data.date,
                   childAge: age,
-                  userid: user.uid,
-                  useremail: user.email
+                  userid: useridd,
+                  useremail: email
                 }).then(val => {
 
                   firebase.database().ref().child('Children/').orderByKey().on('value', ((childrens) => {
@@ -1087,14 +1092,14 @@ export class NewsfeedPage {
       cssClass: 'sunny01 ggg sunny add',
       buttons: [
 
-        // {
-        //   text: 'Add Another Child',
-        //   handler: data => {
-        //     console.log('Saved clicked');
-        //     console.log(data);
-        //     this.kidzone();
-        //   }
-        // },
+         {
+           text: 'Add Another Child',
+           handler: data => {
+             console.log('Saved clicked');
+             console.log(data);
+             this.kidzone();
+           }
+         },
         {
           text: 'Done',
           handler: data => {
@@ -1138,7 +1143,8 @@ export class NewsfeedPage {
 
   /***********************Popup for add child of pregnant ***********/
   pregnant() {
-    var useridd = localStorage.getItem('userid');
+    let useridd = localStorage.getItem('userid');
+      let email = localStorage.getItem('email');
     let prompt = this.alertCtrl.create({
       // <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
       title: 'Kids Zone',
@@ -1171,12 +1177,14 @@ export class NewsfeedPage {
             if (data.fchildname != '' && data.date != '') {
               if (days > 0) {
                 var user = firebase.auth().currentUser;
+              
+              
                 firebase.database().ref().child('Children/' + useridd + "/child").push({
                   childname: data.fchildname,
                   childAge: age,
                   duedate: data.date,
-                  userid: user.uid,
-                  useremail: user.email,
+                  userid: useridd,
+                  useremail: email,
                   status: 'pregnant'
                 }).then(data => {
                   this.due();
@@ -1405,7 +1413,7 @@ export class NewsfeedPage {
     this.tutorial = this.modalCtrl.create(TutorialPage);
     this.tutorial.present();
   }
-   tutorial4pageModal() {
+   tutorial4pageModal() {  //search
     this.tutorial4 = this.modalCtrl.create(Tutorial4Page);
     this.tutorial4.present();
     this.tutorial4.onDidDismiss(res => {
@@ -1562,7 +1570,6 @@ export class NewsfeedPage {
     // this.postedfrom = 'active_kids'
 
     firebase.database().ref().child('newsfeed').on("value", ((nwss) => {
-
       if (this.active_kids == "active") {
 
         var trackval = [];
@@ -1585,12 +1592,17 @@ export class NewsfeedPage {
                   this.newss.push(newsfeed[l]);
 
                 }
-                // console.log('Match')
               } else {
                 // console.log('Not a match')
               }
-
             }
+            if(newsfeed[l].global != undefined && newsfeed[l].global ==true){
+                if (tracknews.indexOf(l) == -1) {
+                  tracknews.push(l);
+                  newsfeed[l].message_id = l;
+                  this.newss.push(newsfeed[l]);
+                }
+            } 
           }
         }
 
@@ -1641,8 +1653,6 @@ export class NewsfeedPage {
 
         console.log(this.newss)
       }
-
-
     })
     )
 
@@ -1880,41 +1890,41 @@ export class NewsfeedPage {
 
   }
 
+
+//get newsfeed according to zip code
   homebaselocation(lat, long, zip) {
     console.log(lat, long, zip)
     var loader = this.loadingCtrl.create({
       content: 'Loading...',
       spinner: 'dots',
     })
-    loader.present()
+    
     // this.geocoder.geocode({ 'address': zip }).then((result) => {
 
     //   if (Object.keys(result).length > 0) {
-
-
+        loader.present()
         var useridd = localStorage.getItem('userid');
         this.newss = [];
         firebase.database().ref().child('newsfeed').orderByKey().on('value', ((datachild) => {
           console.log('honey');
+       
           if (this.active_home == "active") {
             this.newss = [];
             this.dataval = []
             this.news = datachild.val();
-            console.log('honey2');
+     
             this.latitude = lat;//result[0].position.lat;
             this.longitude = long;//result[0].position.lng;
             loader.dismiss()
             console.log(this.news);
             if (this.news) {
-
-
+                  
               for (let i in this.news) {
-               // console.log(this.news[i]);
                 var distance = this.newsfeedProvider.getdistance(this.latitude, this.longitude, this.news[i].latitude, this.news[i].longitude, "K");
 
                 var range = (distance).toFixed(2);
                 loader.dismiss()
-                if (parseFloat(range) < 50.00) {
+                if (parseFloat(range) < 50.00) { //gets newsfeed according to homebase
                   console.log('honey3');
                   // image and comment
                   if (this.news[i].image != undefined || this.news[i].image != null) {
@@ -1962,10 +1972,57 @@ export class NewsfeedPage {
                     }
                   })
                   //
-
                   this.newss.push(this.news[i]);
+                }
                 
+                //gets newsfeed pushed for all users
+                if(this.news[i].global != undefined && this.news[i].global ==true){
+                    // image and comment
+                  if (this.news[i].image != undefined || this.news[i].image != null) {
+                    this.news[i].image1 = this.newsfeedProvider.imgPath + this.news[i].image;
+                  }
 
+                  if (this.news[i].comments != undefined) {
+                    this.news[i].comments = Object.keys(this.news[i].comments).map(key => this.news[i].comments[key]);
+                    this.news[i].count = this.news[i].comments.length;
+                    console.log(this.news[i].count);
+                  }
+
+                  this.news[i].message_id = i;
+
+                  if (this.news[i].like != undefined) {
+                   // console.log(i)
+                    this.dataval.push(i);
+                    var j = 0;
+                    firebase.database().ref().child('newsfeed/' + i + '/like').orderByChild("user_id").equalTo(this.userr_id).once('value', ((userlike) => {
+                     // console.log(userlike.val());
+                      var userlikes = userlike.val();
+                      if (userlikes) {
+                        this.news[i].likes = 1;
+                      //  console.log("sd" + this.testd);
+                      } else {
+                        this.news[i].likes = 0;
+                      }
+                      j++
+                    })
+                    )
+                  } else {
+                    this.news[i].likes = 0;
+                  }
+                  console.log(this.news);
+                  firebase.database().ref().child('users').orderByKey().equalTo(this.news[i].userid).once('value', (user) => {
+                    var users = user.val();
+                    for (let j in users) {
+                      var l = users[j].lastname.substring(0, 1);
+                      this.news[i].name1 = users[j].firstname + ' ' + l;
+                      if (users[j].image) {
+                        this.news[i].userpic = users[j].image;
+                      } else {
+                        this.news[i].userpic = 'assets/img/icon2.png'
+                      }
+                    }
+                  })
+                    this.newss.push(this.news[i]);
                 }
               }
             }

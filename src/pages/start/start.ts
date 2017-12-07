@@ -9,6 +9,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { Facebook } from '@ionic-native/facebook';
 import { Firebase } from '@ionic-native/firebase';
 import { GooglePlus } from '@ionic-native/google-plus';
+import {LoginPage} from '../login/login';
 
 @Component({
   selector: 'page-start',
@@ -211,23 +212,23 @@ export class StartPage {
                   lastname: res.familyName,
                   token: this.devicetoken,
                   role: 'customer',
-                  image : img,
-                  googleid : res.userId
+                  image : img
                 }
-
+                
                 var newPostKey = firebase.database().ref().child('users').push().key;
                 var updates = {};
                 updates['users/' + newPostKey] = uservalues;
 
-                console.log('l')
                 firebase.database().ref().update(updates);
                 localStorage.setItem('email', res.email);
-                console.log('m')
                 localStorage.setItem('userpic', img);
                 
                 localStorage.setItem('userid', newPostKey);
                 localStorage.setItem('username', res.displayName);
                 localStorage.setItem('google', '1');
+              
+
+             
                 
                 firebase.database().ref().child('track/' + i).update({
                   status: "logedin",
@@ -305,6 +306,9 @@ export class StartPage {
     toast.present();
   }
 
+ loginPage() {
+    this.navCtrl.push(LoginPage);
+  }
 
   TabsPage(bit) {
       if(bit == '1'){

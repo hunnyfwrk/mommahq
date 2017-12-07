@@ -97,7 +97,7 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
-    <engine name="android" spec="^6.2.3" />
+    <engine name="android" spec="^6.3.0" />
     <plugin name="cordova-plugin-console" spec="1.0.5" />
     <plugin name="cordova-plugin-device" spec="1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
@@ -110,15 +110,15 @@
         <variable name="APP_ID" value="137181716877804" />
         <variable name="APP_NAME" value="MommaApp" />
     </plugin>
-    <plugin name="cordova-plugin-googlemaps" spec="git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBiZKWHEAoZN8URlJjUyjBINNgxlBXl2xk" />
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyBiZKWHEAoZN8URlJjUyjBINNgxlBXl2xk" />
-    </plugin>
-    <plugin name="cordova-plugin-compat" spec="^1.1.0" />
     <plugin name="cordova-plugin-camera" spec="^2.4.1" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.0" />
     <plugin name="cordova-plugin-firebase" spec="^0.1.24" />
     <plugin name="cordova-plugin-googleplus" spec="^5.1.1">
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.387051569421-s5doalgg1rfg5nv1igqh73i9rdrhpft5" />
     </plugin>
+    <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBiZKWHEAoZN8URlJjUyjBINNgxlBXl2xk" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyBiZKWHEAoZN8URlJjUyjBINNgxlBXl2xk" />
+    </plugin>
+    <plugin name="cordova-plugin-compat" spec="^1.2.0" />
 </widget>

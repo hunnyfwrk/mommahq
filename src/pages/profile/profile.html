@@ -58,7 +58,7 @@
   <div class="avv" *ngFor="let data of childdata;let i = index">
     <span style="width:auto; float:left; white-space: normal;">{{data.childname}}</span>
     <p style="width:auto;float:left;" *ngIf='data.childAge > 0'> &nbsp; Age - {{data.childAge | number : '1.0-0'}} </p>
-    <p style="width:auto;float:left;" *ngIf='data.childAge <= 0'>  &nbsp; Due date - {{data.duedate }} </p>
+    <p style="width:auto;float:left;" *ngIf='data.childAge <= 0'>  &nbsp; {{data.duedate | date: 'MM/dd/yyyy'}} </p>
     
   </div>
 </div>
